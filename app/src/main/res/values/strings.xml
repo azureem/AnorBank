@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="google_map_api_key">AIzaSyCekM98RKgAWnsRR7LNud6yMGFKYdQZsUE</string>
+    <string name="app_name">AnorBank</string>
+    <string name="welcoming">Добро пожаловать в</string>
+    <string name="language_option">Выберите язык приложения </string>
+    <string name="poppins_font">poppins.ttf</string>
+    (Assuming your font file name is poppins.ttf)
+    <string name="anor">Anorbank</string>
+    <string name="auth_title">Авторизация</string>
+    <string name="auth_text">Введите ваш номер телефона и пароль,\nчтобы  войти в существуюший аккаунт</string>
+    <string name="auth_policy">Продолжая, я подтверждаю, что\nознакомлен с Универсальным договором \nПолитикой конфиденциальности</string>
+    <string name="verify_title">Верификация</string>
+    <string name="verify_code">Введите смс-код</string>
+    <string name="keyword_title">Кодовое слово</string>
+    <string name="keyword_text">Латинский алфавит, \n от 6 до 12 символов.</string>
+    <string name="verify_text">Пожалуйста введите смс-код,\n чтобы подтвердить ваш номер телефона</string>
+
+
+    //all
+    //sign up
+    <string name="all">Все</string>
+    <string name="add_cards">ДОБАВИТЬ КАРТУ</string>
+    <string name="add">ДОБАВИТЬ</string>
+    //client
+
+    <string name="client">Стать клиентом</string>
+
+
+    <string name="sign_up">Зарегистрироваться?</string>
+
+
+    //add card
+    <string name="add_card_number">Введите номер карты</string>
+    <string name="add_card_expire">Срок действия</string>
+    <string name="add_card_name">Название карты</string>
+    <string name="add_card_anor">Зарплатная карта ANORBANK</string>
+
+    <string name="add_card_top">Добавление карты</string>
+
+    //tabs
+    <string name="tab_home">Главная</string>
+    <string name="tab_cards">Карты</string>
+    <string name="tab_payment">Оплата</string>
+    <string name="tab_monitoring">Мониторинг</string>
+    <string name="tab_service">Все услуги</string>
+
+
+    //finger
+    <string name="fin_title">Отпечаток</string>
+    <string name="fin_txt">Добавьте свой отпечаток пальца, \nчтобы ускорить процесс входа и выхода.</string>
+    <string name="fin_step">Пропустить этот шаг -></string>
+    <string name="fin_install">Установить-></string>
+
+
+    //button
+    <string name="btn_continue">Продолжить</string>
+    <string name="btn_add_home">Добавить новый дом</string>
+
+
+    //reg
+    <string name="reg_title">Регистрация</string>
+    <string name="reg_name">Имя</string>
+    <string name="reg_surname">Фамилия</string>
+    <string name="reg_password">Пароль</string>
+    <string name="reg_born">дд.мм.гг</string>
+    <string name="reg_gender">Пол</string>
+
+
+    //messages
+    <string name="msg_sms">Код придет в течение:</string>
+    <string name="msg_txt">Введите смс-код</string>
+
+    // pin
+    <string name="pin_first">Создайте пин-код</string>
+    <string name="pin_second">Повторите пин-код</string>
+    <string name="pin_regular">Введите пин-код</string>
+
+
+    //gender
+    <string name="male">Мужской</string>
+    <string name="female">Женский</string>
+
+
+    //cards
+    <string name="card_adds">Добавление карты</string>
+    <string name="card_number">Введите номер карты</string>
+    <string name="card_expire">Срок действия</string>
+    <string name="card_title">Название карты</string>
+    <string name="card_anor">Зарплатная карта ANORBANK</string>
+
+
+    //Services
+    <string name="service_all">Все услуги</string>
+    <string name="service_gov">Государственные услуги онлайн</string>
+    <string name="service_gov_txt">Здесь вы можете получить справки или услуги</string>
+    <string name="service_strahovaniye"></string>
+    <string name="new_york">New York</string>
+
+
+    //home screen
+    <string name="home_balance">Общий баланс</string>
+    <string name="home_item1">Кросс \n конвертация</string>
+    <string name="home_item2">Перевод\nна карту</string>
+    <string name="home_item3">AnorCheck</string>
+    <string name="home_item4">Оплата\nсотового</string>
+    <string name="home_item5">QR оплата</string>
+    <string name="home_item6">Обмен\nвалюты</string>
+    <string name="home_item7">Оплата по\nреквизитам</string>
+    <string name="home_item8">Запрос\nсредств</string>
+    <string name="home_item9">Погашение\nрассрочки</string>
+    <string name="home_item10">Погашение\nкредита</string>
+    <string name="home_item11">Между-\nнародные </string>
+    <string name="home_item12">Humo Pay</string>
+
+
+    //service screen
+    <string name="service_govs">Государственные услуги онлайн</string>
+    <string name="service_govs2">Здесь вы можете получить справки или услуги "Единого окна"</string>
+    <string name="service_insurance">Страхование компании</string>
+    <string name="service_insurance2">Заказ и оплата страхового полиса</string>
+    //service items
+    <string name="ser_kross">Кросс конвертация</string>
+    <string name="ser_order">Заказать карту</string>
+    <string name="ser_vklad">Вклады</string>
+    <string name="ser_rassrochka">Рассрочка</string>
+    <string name="ser_credits">Кредиты</string>
+    <string name="ser_myhome">Мой дом</string>
+    <string name="ser_valyuta">Обмен валюты</string>
+    <string name="ser_perevodi">Международные переводы</string>
+    <string name="ser_insurance">Страхование</string>
+    <string name="ser_schet">Счет</string>
+
+
+    //Expandable texts
+
+    <string name="ex_cash">Кэшбэк</string>
+    <string name="ex_cash_nakopleno">Накоплено</string>
+    <string name="ex_untill">до</string>
+
+
+    <string name="ex_rassrochki_txt">Карта рассрочки ANOR</string>
+    <string name="ex_rassrochki_t1">Без % и переплат</string>
+    <string name="ex_rassrochki_t2">Лимит до 50 млн UZS</string>
+    <string name="ex_rassrochki_t3">Покупки у 4000+ партнеров</string>
+
+
+    <string name="ex_hint">Подсказки</string>
+    <string name="ex_cards">Мои карты</string>
+    <string name="ex_saved">Сохраненные</string>
+    <string name="ex_rassrochka">Рассрочка</string>
+    <string name="ex_creditss">Кредиты</string>
+    <string name="ex_vklad">Вклады</string>
+    <string name="ex_myhome">Мой дом</string>
+    <string name="ex_valyuta">Курс валют</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="configure">Configure</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
+
+
+</resources>
