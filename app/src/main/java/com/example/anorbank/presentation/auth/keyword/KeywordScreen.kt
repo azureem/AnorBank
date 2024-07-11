@@ -47,7 +47,7 @@ class KeywordScreen: Screen {
 
 
     @Composable
-    fun Keyword(onEventDispatcher :(KeywordContract.MyIntent.NextMain)->Unit){
+        fun Keyword(onEventDispatcher :(KeywordContract.MyIntent.NextMain)->Unit){
         var keyWord by rememberSaveable { mutableStateOf("") }
         var isButtonEnabled = keyWord.length >= 6 && keyWord.length<=12
         Column (modifier = Modifier

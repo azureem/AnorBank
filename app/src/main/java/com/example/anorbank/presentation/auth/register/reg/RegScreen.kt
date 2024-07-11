@@ -47,7 +47,6 @@ import com.example.anorbank.presentation.components.PhoneField
 import com.example.anorbank.presentation.components.TextCompo
 import com.example.anorbank.presentation.components.TextPolicy
 import com.example.anorbank.ui.theme.Anor_grey
-import com.example.anorbank.ui.theme.Anor_hint
 import com.example.anorbank.ui.theme.Anor_hinting
 import com.example.anorbank.ui.theme.Anor_light_grey
 

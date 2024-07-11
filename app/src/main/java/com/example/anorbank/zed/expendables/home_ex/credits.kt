@@ -7,6 +7,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -100,13 +101,13 @@ fun Credits() {
 
             }
             AnimatedVisibility(visible = isExpanded) {
-                Column {
-
-                    Image(
-                        painter = painterResource(id = R.drawable.ic_my_home),
+                Row(modifier = Modifier.fillMaxWidth()) {
+                    Spacer(modifier = Modifier.weight(0.1f))
+                    Image(modifier = Modifier.weight(1.5f),
+                        painter = painterResource(id = R.drawable.ic_credit_loan),
                         contentDescription = null
                     )
-                    SpacerHSixteen()
+                    Spacer(modifier = Modifier.weight(1f))
                 }
             }
 

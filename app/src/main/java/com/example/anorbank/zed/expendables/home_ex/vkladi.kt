@@ -61,18 +61,15 @@ fun Vkladi() {
 
     val resources = LocalContext.current.resources
     val itemList = listOf(
-        ItemData(img = R.drawable.item_1, text = resources.getString(R.string.home_item1)),
-        ItemData(R.drawable.item_2, text = resources.getString(R.string.home_item2)),
-        ItemData(R.drawable.item_3, text = resources.getString(R.string.home_item3)),
-        ItemData(R.drawable.item_4, text = resources.getString(R.string.home_item4)),
-        ItemData(R.drawable.item_4, text = resources.getString(R.string.home_item5)),
-        ItemData(R.drawable.item_4, text = resources.getString(R.string.home_item6)),
-        ItemData(R.drawable.item_4, text = resources.getString(R.string.home_item7)),
-        ItemData(R.drawable.item_4, text = resources.getString(R.string.home_item8)),
-        ItemData(R.drawable.item_4, text = resources.getString(R.string.home_item9)),
-        ItemData(R.drawable.item_4, text = resources.getString(R.string.home_item1)),
-        ItemData(R.drawable.item_4, text = resources.getString(R.string.home_item1)),
-        ItemData(R.drawable.item_4, text = resources.getString(R.string.home_item1)))
+        ItemData(img = R.drawable.omonat1, text = resources.getString(R.string.home_item1)),
+        ItemData(R.drawable.omonat2, text = resources.getString(R.string.home_item2)),
+        ItemData(R.drawable.omonat3, text = resources.getString(R.string.home_item3)),
+        ItemData(R.drawable.omonat4, text = resources.getString(R.string.home_item4)),
+        ItemData(R.drawable.omonat5, text = resources.getString(R.string.home_item5)),
+        ItemData(R.drawable.omonat6, text = resources.getString(R.string.home_item6)),
+        ItemData(R.drawable.omonat7, text = resources.getString(R.string.home_item7)),
+        ItemData(R.drawable.omonat8, text = resources.getString(R.string.home_item8)),
+        ItemData(R.drawable.omonat9, text = resources.getString(R.string.home_item9)))
 
     var isExpanded by rememberSaveable {
         mutableStateOf(false)
@@ -86,9 +83,9 @@ fun Vkladi() {
     ) {
         Column(modifier = Modifier.background(color = Color.White)) {
 
-            SpacerHEight()
+       SpacerHEight()
             Row(modifier = Modifier.fillMaxWidth()) {
-                SpacerWEight()
+           SpacerWEight()
                 Text(
                     text = stringResource(id = R.string.ex_vklad),
                     modifier = Modifier
@@ -97,8 +94,6 @@ fun Vkladi() {
                     fontFamily = FontFamily(Font(R.font.monsbold)),
                     color = Anor_grey
                 )
-
-
 
                 if (!isExpanded) {
                     Image(
@@ -129,13 +124,15 @@ fun Vkladi() {
                     )
                 }
 
+              //  SpacerHTwentyFour()
+
             }
             AnimatedVisibility(visible = isExpanded) {
                 Column {
 
                     LazyVkladi(data = itemList)
 
-                    SpacerHSixteen()
+                   // SpacerHEight()
                 }
             }
 
@@ -160,26 +157,26 @@ fun LazyVkladi(data: List<ItemData>) {
 }
 @Composable
 fun ItemVkladi(data: ItemData) {
-    Column(modifier = Modifier.padding(8.dp)) {
+    Column(modifier = Modifier.padding(horizontal = 6.dp)) {
         Image(
             painter = painterResource(id = data.img),
             contentDescription = data.text,
             modifier = Modifier
-                .size(68.dp)
+                .size(220.dp)
                 .align(Alignment.CenterHorizontally)
         )
         Spacer(modifier = Modifier.width(8.dp))
-        Text(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            textAlign = TextAlign.Center,
-            text = data.text,
-            lineHeight = TextUnit(18f, TextUnitType.Sp),
-            color = Color.White,
-            fontSize = 12.sp,
-            fontFamily = FontFamily(Font(R.font.monsbold))
-
-
-        )
+//        Text(
+//            modifier = Modifier.align(Alignment.CenterHorizontally),
+//            textAlign = TextAlign.Center,
+//            text = data.text,
+//            lineHeight = TextUnit(18f, TextUnitType.Sp),
+//            color = Color.White,
+//            fontSize = 12.sp,
+//            fontFamily = FontFamily(Font(R.font.monsbold))
+//
+//
+//        )
     }
 }
 

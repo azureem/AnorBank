@@ -1,5 +1,6 @@
 package com.example.anorbank.zed.expendables.home_ex
 
+import android.util.Log
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -11,6 +12,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
@@ -33,6 +37,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.anorbank.R
 import com.example.anorbank.presentation.components.TextCompoRed
+import com.example.anorbank.presentation.main.cards.item_cards.ItemPrimaryFun
+import com.example.anorbank.presentation.main.home.MainContract
 import com.example.anorbank.ui.theme.AnorBankTheme
 import com.example.anorbank.ui.theme.Anor_grey
 import com.example.anorbank.utils.spacers.SpacerHEight
@@ -42,7 +48,7 @@ import com.example.anorbank.utils.spacers.SpacerWEight
 
 
 @Composable
-fun MyCards() {
+fun MyCards(onEventDispatcher :(MainContract.MyIntent)->Unit, uiState: MainContract.UiState) {
 
     var isExpanded by rememberSaveable {
         mutableStateOf(false)
@@ -68,9 +74,6 @@ fun MyCards() {
                     fontFamily = FontFamily(Font(R.font.monsbold)),
                     color = Anor_grey
                 )
-
-
-
                 if (!isExpanded) {
                     Image(
                         modifier = Modifier
@@ -97,40 +100,45 @@ fun MyCards() {
                         fontFamily = FontFamily(Font(R.font.monsbold)),
                         color = Anor_grey
                     )
-
                 }
-
-
             }
-            AddCards()
-            AnimatedVisibility(visible = isExpanded) {
+
+        //    AnimatedVisibility(visible = isExpanded) {
                 Column {
 
+                    when(uiState){
+                        is MainContract.UiState.EmptyState->{
+                            AddCards(onEventDispatcher)
+                        }
+                        is MainContract.UiState.CardLists->{
+                            val cardList = uiState.cards
+                            LazyRow(content = {
+                                items(cardList){
+                                    ItemPrimaryFun(name = it.name, pan = it.pan, amount = it.amount)
+                                }
+                            })
+                        }
 
+                        else -> {}
+                    }
                     SpacerHSixteen()
                 }
-            }
-
-
             SpacerHTwentyFour()
         }
-
-
-    }
-
-}
-
-
-@Composable
-@Preview
-fun PrevMyCards() {
-    AnorBankTheme {
-        MyCards()
     }
 }
 
+
+//@Composable
+//@Preview
+//fun PrevMyCards() {
+//    AnorBankTheme {
+//        MyCards()
+//    }
+//}
+
 @Composable
-fun AddCards() {
+fun AddCards(onEventDispatcher :(MainContract.MyIntent)->Unit) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -138,6 +146,9 @@ fun AddCards() {
     ) {
         Row(
             modifier = Modifier
+                .clickable {
+                    onEventDispatcher.invoke(MainContract.MyIntent.OpenAddCard)
+                }
                 .align(Alignment.TopCenter)
         ) {
             Image(modifier = Modifier.size(18.dp),

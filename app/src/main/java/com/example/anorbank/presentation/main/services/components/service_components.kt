@@ -179,7 +179,7 @@ fun ServiceItems(data: SerItemData) {
             Image(
                 modifier = Modifier
                     .padding(3.dp)
-                    .size(48.dp)
+                    .size(56.dp)
                     .align(Alignment.CenterVertically),
                 painter = painterResource(id = data.img),
                 contentDescription = null

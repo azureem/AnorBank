@@ -38,6 +38,7 @@ import com.example.anorbank.R
 import com.example.anorbank.ui.theme.AnorBankTheme
 import com.example.anorbank.ui.theme.Anor_grey
 import com.example.anorbank.ui.theme.Anor_hint
+import com.example.anorbank.ui.theme.Anor_hinting
 import com.example.anorbank.ui.theme.Anor_orange
 import com.example.anorbank.utils.spacers.SpacerHEight
 import com.example.anorbank.utils.spacers.SpacerHSixteen
@@ -146,7 +147,7 @@ fun RassFrame() {
                 color = Anor_hint,
                 shape = RoundedCornerShape(18.dp)
             )
-            .background(color = Color.White)
+            .background(color = Anor_hint)
     ) {
         Column(modifier = Modifier.weight(6f)) {
 
@@ -166,7 +167,7 @@ fun RassFrame() {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 16.dp),
-                color = Anor_hint,
+                color = Anor_hinting,
                 fontFamily = FontFamily(Font(R.font.monsbold)),
 
                 fontSize = 10.sp
@@ -177,7 +178,7 @@ fun RassFrame() {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 16.dp),
-                color = Anor_hint,
+                color = Anor_hinting,
                 fontFamily = FontFamily(Font(R.font.monsbold)),
                 fontSize = 9.sp
             )
@@ -186,7 +187,7 @@ fun RassFrame() {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 16.dp),
-                color = Anor_hint,
+                color = Anor_hinting,
                 fontFamily = FontFamily(Font(R.font.monsbold)),
                 fontSize = 9.sp
             )

@@ -2,6 +2,8 @@ package com.example.anorbank.di
 
 import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerInterceptor
+import com.example.anorbank.data.model.remote.interceptor.HeaderInterceptor
+import com.example.anorbank.data.model.remote.interceptor.TokenAuthenticator
 import com.example.anorbank.data.source.remote.MyApi
 import com.example.anorbank.utils.NetworkStatusValidator
 import dagger.Module
@@ -17,6 +19,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 
+@Suppress("UNREACHABLE_CODE")
 @Module
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
@@ -24,22 +27,43 @@ class NetworkModule {
 //     fun provideGson():Gson = Gson
 
 
+
+
     @[Provides Singleton]
     fun provideOkHttp(
         @ApplicationContext context: Context,
-        networkStatusValidator: NetworkStatusValidator
+        authInterceptor: TokenAuthenticator
     ): OkHttpClient {
-        val cacheSize = (50 * 1024 * 1024).toLong()  // 50 MB
-        val cache = Cache(context.cacheDir, cacheSize)
-        val maxStale = 60 * 60 * 24 * 30
-
-        return OkHttpClient.Builder()
-            .addInterceptor(ChuckerInterceptor(context))
-            .readTimeout(30, TimeUnit.SECONDS)
-            .connectTimeout(30, TimeUnit.SECONDS)
-            .writeTimeout(30, TimeUnit.SECONDS)
-            .cache(cache).build()
-
+        return OkHttpClient
+            .Builder()
+            .addInterceptor(ChuckerInterceptor(context = context))
+            .authenticator(authInterceptor)
+            .build()
+    }
+//    @[Provides Singleton]
+//    fun provideOkHttp(
+//        @ApplicationContext context: Context,
+//        networkStatusValidator: NetworkStatusValidator,
+//        tokenAuth:TokenAuthenticator,
+////       authInterceptor: AuthInterceptor,
+//      headerInterceptor: HeaderInterceptor
+//    ): OkHttpClient {
+//        val cacheSize = (50 * 1024 * 1024).toLong()  // 50 MB
+//        val cache = Cache(context.cacheDir, cacheSize)
+//        val maxStale = 60 * 60 * 24 * 30
+//
+//
+//        return OkHttpClient.Builder()
+////          .addInterceptor(headerInterceptor)
+////            .addInterceptor(authInterceptor)
+//            .addInterceptor(headerInterceptor)
+//            .authenticator(tokenAuth)
+//            .addInterceptor(ChuckerInterceptor(context))
+//
+//            .readTimeout(30, TimeUnit.SECONDS)
+//            .connectTimeout(30, TimeUnit.SECONDS)
+//            .writeTimeout(30, TimeUnit.SECONDS)
+//            .cache(cache).build()
 //        return OkHttpClient.Builder()
 //            .addInterceptor(ChuckerInterceptor(context))
 //            .addInterceptor { chain ->
@@ -58,7 +82,7 @@ class NetworkModule {
 //            .connectTimeout(30, TimeUnit.SECONDS)
 //            .writeTimeout(30, TimeUnit.SECONDS)
 //            .cache(cache).build()
-    }
+//    }
 
 
     @[Provides Singleton]
@@ -69,7 +93,8 @@ class NetworkModule {
             .client(okHttpClient)
             .build()
 
-    @[Provides Singleton]
+    @Provides()
+    @Singleton
     fun provideContactApi(retrofit: Retrofit): MyApi =
         retrofit.create(MyApi::class.java)
 

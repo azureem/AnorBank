@@ -2,7 +2,7 @@ package com.example.anorbank.presentation.auth.register.phone
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.anorbank.data.model.remote.request.UserLoginRequest
+import com.example.anorbank.data.model.remote.request.auth_requests.UserLoginRequest
 import com.example.anorbank.domain.Repo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -38,7 +38,7 @@ class AuthModel @Inject constructor(
                             direction.sms()
                         }
                         it.onFailure {
-//
+
                         }
                     }.launchIn(viewModelScope)
             }

@@ -147,7 +147,7 @@ class LanguageScreen : Screen {
                         Modifier
                             .size(100.dp)
                             .clickable {
-                                setLocate(context =context, "UZBEK")
+                                setLocate(context =context, "uz")
                                 currentLanguage.value = "uz"
                                 viewModel.selectedLanguage(currentLanguage.value)
                                 onEventDispatcher(LanguageContract.Intent.openAuthPhone)

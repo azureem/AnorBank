@@ -3,6 +3,7 @@ package com.example.anorbank.presentation.auth.register.phone
 import com.example.anorbank.presentation.auth.pin.PinScreen
 import com.example.anorbank.presentation.auth.register.reg.RegScreen
 import com.example.anorbank.presentation.auth.verify.SmsScreen
+import com.example.anorbank.presentation.auth.verify.vaerifyLog.SmsLogScreen
 import com.example.anorbank.utils.navigator.AppNavigator
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -21,6 +22,6 @@ class AuthDirectionImpl @Inject constructor(private val appNavigator: AppNavigat
     }
 
     override suspend fun sms() {
-        appNavigator.navigateTo(SmsScreen())
+        appNavigator.navigateTo(SmsLogScreen())
     }
 }

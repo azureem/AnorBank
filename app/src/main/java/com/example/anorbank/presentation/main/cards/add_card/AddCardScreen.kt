@@ -10,9 +10,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Switch
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
-import androidx.compose.material.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -31,37 +31,45 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.hilt.getViewModel
 import com.example.anorbank.R
 import com.example.anorbank.presentation.auth.register.reg.StringInputField
 import com.example.anorbank.presentation.components.PhoneField
+import com.example.anorbank.presentation.main.cards.add_card.components.MyTop
 import com.example.anorbank.ui.theme.Anor_grey
 import com.example.anorbank.ui.theme.Anor_light_grey
 import com.example.anorbank.utils.spacers.SpacerHSixteen
-import com.example.anorbank.utils.spacers.SpacerHThirtyTwo
 import com.example.anorbank.utils.spacers.SpacerHTwentyFour
 import com.example.anorbank.utils.spacers.SpacerWFourtyEight
-import com.example.anorbank.utils.spacers.SpacerWTwentyFour
 
 
-class AddCardScreen: Screen{
+class AddCardScreen : Screen {
     @Composable
     override fun Content() {
 
+        val viewModel = getViewModel<AddCardModel>()
+        AddingCardFun(viewModel::onEventDispatcher)
     }
 
 }
-@Composable
-fun AddingCardFun() {
 
+@Composable
+fun AddingCardFun(onEventDispatcher: (AddCardContract.MyIntent) -> Unit) {
+
+
+    val expiredYear = "2028"
+    val expiredMonth = "6"
     val checkedState = remember { mutableStateOf(false) }
     var cardNumber by rememberSaveable { mutableStateOf("") }
     var expire by rememberSaveable { mutableStateOf("") }
     var nameCard by rememberSaveable { mutableStateOf("") }
     var isButtonEnabled = cardNumber.length == 16 && expire.isNotEmpty()
             && nameCard.length > 2
-    Column (modifier = Modifier
-        .fillMaxSize()
-        .background(color = Anor_light_grey)){
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = Anor_light_grey)
+    ) {
         MyTop(modifier = Modifier, title = stringResource(id = R.string.add_card_top))
 
         Spacer(modifier = Modifier.weight(0.8f))
@@ -149,13 +157,13 @@ fun AddingCardFun() {
                             .height(24.dp)
                             .background(color = Anor_light_grey)
                     )
-
-
                 }
 
-                Row(modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 14.dp)) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 14.dp)
+                ) {
 
                     Text(
                         modifier = Modifier
@@ -188,7 +196,18 @@ fun AddingCardFun() {
                     shape = RoundedCornerShape(16.dp),
                     onClick = {
 
-                    }) {
+                        onEventDispatcher.invoke(
+                            AddCardContract.MyIntent.AddCardData(
+                                pan = cardNumber,
+                                expireYear = expiredYear,
+                                expireMoth = expiredMonth,
+                                name = nameCard
+                            )
+                        )
+
+
+                    }
+                ) {
                     Text(
                         modifier = Modifier.background(color = Color.Transparent),
                         text = stringResource(id = R.string.btn_continue),
@@ -210,5 +229,5 @@ fun AddingCardFun() {
 @Preview
 @Composable
 fun AddCardPrevs() {
-AddingCardFun()
+    AddingCardFun({})
 }

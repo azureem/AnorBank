@@ -2,13 +2,16 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="AddCardPrevs">
-        <State />
-      </entry>
       <entry key="Checking">
         <State />
       </entry>
-      <entry key="GovPrev">
+      <entry key="PPPPPP">
+        <State />
+      </entry>
+      <entry key="PaymentPrevss">
+        <State />
+      </entry>
+      <entry key="PaymentPrevss (1)">
         <State />
       </entry>
       <entry key="PfofPrev (1)">
@@ -18,22 +21,9 @@
         <State />
       </entry>
       <entry key="PrevMains">
-        <State>
-          <targetSelectedWithDropDown>
-            <Target>
-              <type value="QUICK_BOOT_TARGET" />
-              <deviceKey>
-                <Key>
-                  <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="C:\Users\GAMING 15\.android\avd\Pixel_7_API_34.avd" />
-                </Key>
-              </deviceKey>
-            </Target>
-          </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-05-09T11:12:50.037979200Z" />
-        </State>
+        <State />
       </entry>
-      <entry key="PrevService">
+      <entry key="TransactionPrevs">
         <State />
       </entry>
       <entry key="app">
@@ -49,11 +39,8 @@
               </deviceKey>
             </Target>
           </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-05-09T09:18:44.578029700Z" />
+          <timeTargetWasSelectedWithDropDown value="2024-05-23T10:07:57.714324100Z" />
         </State>
-      </entry>
-      <entry key="prevMap">
-        <State />
       </entry>
     </value>
   </component>

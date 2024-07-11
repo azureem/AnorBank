@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.material.BottomNavigation
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -14,6 +15,10 @@ import cafe.adriel.voyager.navigator.CurrentScreen
 import cafe.adriel.voyager.navigator.Navigator
 import com.example.anorbank.presentation.auth.finger.FingerScreen
 import com.example.anorbank.presentation.auth.language.LanguageScreen
+import com.example.anorbank.presentation.auth.pin.PinScreen
+import com.example.anorbank.presentation.auth.pins.PinScreens
+import com.example.anorbank.presentation.main.bottom.MyBottomNavigation
+import com.example.anorbank.presentation.profile.ProfileScreen
 import com.example.anorbank.utils.navigator.NavigationHandler
 import com.example.anorbank.presentation.splash.SplashScreen
 import com.example.anorbank.ui.theme.AnorBankTheme
@@ -36,7 +41,7 @@ class MainActivity : FragmentActivity() {
             AnorBankTheme {
 
                 Navigator(
-                    screen = LanguageScreen()
+                    screen = SplashScreen()
                 ){navigator ->
 
                     handler.navigationStack.onEach {

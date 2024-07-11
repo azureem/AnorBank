@@ -2,6 +2,7 @@ package com.example.anorbank.presentation.main.home.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -29,10 +30,11 @@ import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.anorbank.R
+import com.example.anorbank.presentation.main.home.MainContract
 import com.example.anorbank.ui.theme.Anor_dark
 
 @Composable
-fun Tops() {
+fun Tops(onEventDispatcher: (MainContract.MyIntent.OpenProfile) -> Unit) {
     TopAppBar(
         modifier = Modifier.background(color = Anor_dark),
         navigationIcon = {
@@ -42,8 +44,14 @@ fun Tops() {
                     .padding(start = 16.dp)
                     .size(28.dp)
             ) {
-               Image(painter = painterResource(id = R.drawable.pg_profile),
-                   contentDescription =null )
+                Image(
+                    modifier = Modifier.clickable {
+                        onEventDispatcher.invoke(MainContract.MyIntent.OpenProfile)
+
+                    },
+                    painter = painterResource(id = R.drawable.pg_profile),
+                    contentDescription = null,
+                )
             }
         },
         title = {
@@ -68,9 +76,10 @@ fun Tops() {
                     contentDescription = null
                 )
                 //Spacer(modifier = Modifier.width(8.dp))
-                Image( modifier = Modifier
-                    .align(Alignment.CenterVertically)
-                    .padding(8.dp),
+                Image(
+                    modifier = Modifier
+                        .align(Alignment.CenterVertically)
+                        .padding(8.dp),
                     painter = painterResource(id = R.drawable.ic_notify),
                     contentDescription = null
                 )
@@ -83,16 +92,18 @@ fun Tops() {
         elevation = 0.dp
     )
 }
+
 @Composable
 fun LazyInTop(data: List<ItemData>) {
 
     LazyRow {
-       items(data){item->
-        Item(data = item)
-           
-       }
+        items(data) { item ->
+            Item(data = item)
+
+        }
     }
 }
+
 @Composable
 fun Item(data: ItemData) {
     Column(modifier = Modifier.padding(8.dp)) {
@@ -100,7 +111,7 @@ fun Item(data: ItemData) {
             painter = painterResource(id = data.img),
             contentDescription = data.text,
             modifier = Modifier
-                .size(68.dp)
+                .size(72.dp)
                 .align(Alignment.CenterHorizontally)
         )
         Spacer(modifier = Modifier.width(8.dp))
@@ -117,48 +128,62 @@ fun Item(data: ItemData) {
         )
     }
 }
+data class ItemData(
+    val img: Int,
+    val text: String
+)
 
 
 @Composable
-fun TxtSimpleWhite(modifier: Modifier,
-                   text: String,
-                   fontSize: TextUnit,
-                   fontik: FontFamily,
-                   ) {
-    Text(modifier = modifier,
+fun TxtSimpleWhite(
+    modifier: Modifier,
+    text: String,
+    fontSize: TextUnit,
+    fontik: FontFamily,
+) {
+    Text(
+        modifier = modifier,
         text = text,
         fontSize = fontSize,
         fontFamily = fontik,
-        color = Color.White)
+        color = Color.White
+    )
 }
 
 @Composable
-fun TxtSimpleColor(modifier: Modifier,
-                   text: String,
-                   color: Color= Anor_dark,
-                   fontSize: TextUnit,
-                   fontik: FontFamily,
+fun TxtSimpleColor(
+    modifier: Modifier,
+    text: String,
+    color: Color = Anor_dark,
+    fontSize: TextUnit,
+    fontik: FontFamily,
 ) {
-    Text(modifier = modifier,
+    Text(
+        modifier = modifier,
         text = text,
         fontSize = fontSize,
         fontFamily = fontik,
-        color = color)
+        color = color
+    )
 }
 
 
+
 @Composable
-fun TxtMoney(modifier: Modifier,
-                   text: String,
-                   color: Color= Anor_dark,
-                   fontSize: TextUnit,
-                   fontik: FontFamily,
+fun TxtMoney(
+    modifier: Modifier,
+    text: String,
+    color: Color = Anor_dark,
+    fontSize: TextUnit,
+    fontik: FontFamily,
 ) {
-    Text(modifier = modifier,
+    Text(
+        modifier = modifier,
         text = text,
         fontSize = fontSize,
         fontFamily = fontik,
-        color = color)
+        color = color
+    )
 }
 
 
@@ -168,27 +193,22 @@ fun TxtMoney(modifier: Modifier,
 fun ItemList() {
     val resources = LocalContext.current.resources
     val itemList = listOf(
-        ItemData(img = R.drawable.item_1, text =resources.getString(R.string.home_item1)),
-        ItemData(R.drawable.item_2, text =resources.getString(R.string.home_item2)),
-        ItemData(R.drawable.item_3, text =resources.getString(R.string.home_item3)),
-        ItemData(R.drawable.item_4, text =resources.getString(R.string.home_item4)),
-        ItemData(R.drawable.item_4, text =resources.getString(R.string.home_item5)),
-        ItemData(R.drawable.item_4, text =resources.getString(R.string.home_item6)),
-        ItemData(R.drawable.item_4, text =resources.getString(R.string.home_item7)),
-        ItemData(R.drawable.item_4, text =resources.getString(R.string.home_item8)),
-        ItemData(R.drawable.item_4, text =resources.getString(R.string.home_item9)),
-        ItemData(R.drawable.item_4, text =resources.getString(R.string.home_item1)),
-        ItemData(R.drawable.item_4, text =resources.getString(R.string.home_item1)),
-        ItemData(R.drawable.item_4, text =resources.getString(R.string.home_item1))
+        ItemData(img = R.drawable.item_1, text = resources.getString(R.string.home_item1)),
+        ItemData(R.drawable.item_2, text = resources.getString(R.string.home_item2)),
+        ItemData(R.drawable.item_3, text = resources.getString(R.string.home_item3)),
+        ItemData(R.drawable.item_4, text = resources.getString(R.string.home_item4)),
+        ItemData(R.drawable.item_4, text = resources.getString(R.string.home_item5)),
+        ItemData(R.drawable.item_4, text = resources.getString(R.string.home_item6)),
+        ItemData(R.drawable.item_4, text = resources.getString(R.string.home_item7)),
+        ItemData(R.drawable.item_4, text = resources.getString(R.string.home_item8)),
+        ItemData(R.drawable.item_4, text = resources.getString(R.string.home_item9)),
+        ItemData(R.drawable.item_4, text = resources.getString(R.string.home_item1)),
+        ItemData(R.drawable.item_4, text = resources.getString(R.string.home_item1)),
+        ItemData(R.drawable.item_4, text = resources.getString(R.string.home_item1))
     )
 }
 
 
-
-data class ItemData(
-    val img: Int,
-    val text: String
-)
 
 @Composable
 fun ItemText(text: String) {

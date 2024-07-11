@@ -2,7 +2,6 @@ package com.example.anorbank.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -32,7 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.anorbank.R
 import com.example.anorbank.ui.theme.Anor_grey
-import com.example.anorbank.ui.theme.Anor_hint
+import com.example.anorbank.ui.theme.Anor_hinting
 import com.example.anorbank.ui.theme.Anor_light_grey
 
 @Composable
@@ -149,7 +148,7 @@ fun PhoneField(
             onPhoneChanged(it.take(mask.count { it == maskNumber }))
         },
         placeholder = if (phone.isEmpty()) {
-            { Text(text = hint, color = Anor_hint, fontSize = 13.sp,
+            { Text(text = hint, color = Anor_hinting, fontSize = 13.sp,
                 fontFamily = FontFamily(Font(R.font.monsbold))) }
         } else null,
         colors = TextFieldDefaults.outlinedTextFieldColors(

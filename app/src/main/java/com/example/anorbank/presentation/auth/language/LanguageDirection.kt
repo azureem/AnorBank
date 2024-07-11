@@ -1,6 +1,6 @@
 package com.example.anorbank.presentation.auth.language
 
-import com.example.anorbank.presentation.auth.register.phone.AuthPhone
+import com.example.anorbank.presentation.auth.register.phone.AuthScreen
 import com.example.anorbank.presentation.auth.register.reg.RegScreen
 import com.example.anorbank.utils.navigator.AppNavigator
 import javax.inject.Inject
@@ -14,6 +14,6 @@ interface LanguageDirection {
 @Singleton
 class LanguageDirectionImpl  @Inject constructor(private val appNavigator: AppNavigator):LanguageDirection{
     override suspend fun next() {
-        appNavigator.navigateTo(AuthPhone())
+        appNavigator.navigateTo(AuthScreen())
     }
 }

@@ -1,5 +1,6 @@
 package com.example.anorbank.presentation.main.bottom
 
+import CardsScreens
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
@@ -9,7 +10,6 @@ import androidx.compose.ui.res.stringResource
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import com.example.anorbank.R
-import com.example.anorbank.presentation.main.cards.CardsScreen
 import com.example.anorbank.presentation.main.home.MainScreen
 import com.example.anorbank.presentation.main.monitoring.MonitoringScreen
 import com.example.anorbank.presentation.main.payment.PaymentScreen
@@ -57,7 +57,7 @@ object CardsTab : Tab {
 
     @Composable
     override fun Content() {
-        CardsScreen().Content()
+        CardsScreens().Content()
     }
 }
 

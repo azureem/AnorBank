@@ -59,16 +59,13 @@ fun PrevService() {
 fun ServiceFun() {
     val resources = LocalContext.current.resources
     val lists = listOf(
-        SerItemData(R.drawable.item_4, title = resources.getString(R.string.ser_kross)),
-        SerItemData(R.drawable.item_4, title = resources.getString(R.string.ser_order)),
-        SerItemData(R.drawable.item_4, title = resources.getString(R.string.ser_vklad)),
-        SerItemData(R.drawable.item_4, title = resources.getString(R.string.ser_rassrochka)),
-        SerItemData(R.drawable.item_4, title = resources.getString(R.string.ser_credits)),
-        SerItemData(R.drawable.item_4, title = resources.getString(R.string.ser_myhome)),
-        SerItemData(R.drawable.item_4, title = resources.getString(R.string.ser_valyuta)),
-        SerItemData(R.drawable.item_4, title = resources.getString(R.string.ser_perevodi)),
-        SerItemData(R.drawable.item_4, title = resources.getString(R.string.ser_insurance)),
-        SerItemData(R.drawable.item_4, title = resources.getString(R.string.ser_schet)),
+        SerItemData(R.drawable.ser1, title = resources.getString(R.string.ser_kross)),
+        SerItemData(R.drawable.ser2, title = resources.getString(R.string.ser_order)),
+        SerItemData(R.drawable.ser3, title = resources.getString(R.string.ser_vklad)),
+        SerItemData(R.drawable.ser4, title = resources.getString(R.string.ser_rassrochka)),
+        SerItemData(R.drawable.ser5, title = resources.getString(R.string.ser_credits)),
+        SerItemData(R.drawable.ser6, title = resources.getString(R.string.ser_myhome)),
+
     )
 
 

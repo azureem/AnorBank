@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.anorbank"
-        minSdk = 24
+        minSdk = 25
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -63,6 +63,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+    implementation("androidx.wear.compose:compose-material3:1.0.0-alpha22")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -72,8 +73,8 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
 
-    val accompanistVersion = "0.35.0-alpha"
-    implementation ("com.google.accompanist:accompanist-systemuicontroller:${accompanistVersion}")
+    val accompanistVersions = "0.35.0-alpha"
+    implementation ("com.google.accompanist:accompanist-systemuicontroller:${accompanistVersions}")
 
 
 
@@ -133,5 +134,28 @@ dependencies {
   val appcompat_version = "1.6.1"
      implementation("androidx.appcompat:appcompat:$appcompat_version")
     implementation("androidx.appcompat:appcompat-resources:$appcompat_version")
+//    implementation ("androidx.compose.material:material:1.6.7")
+//    implementation ("androidx.compose.material3:material3:1.2.1")
+
+    // ROOM
+    implementation("androidx.room:room-runtime:2.6.1")
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
+
+    //implementation ("com.google.accompanist:accompanist-flowlayout:<version>")
+    val accompanistVersion = "0.35.0-alpha"
+    implementation("com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion")
+    implementation("com.google.accompanist:accompanist-flowlayout:$accompanistVersion")
+
+
+    implementation ("androidx.compose.foundation:foundation:1.0.5")
+    implementation ("androidx.compose.foundation:foundation-layout:1.0.5")
+
+    val paging_version = "3.3.0"
+
+    implementation ("androidx.paging:paging-runtime-ktx:$paging_version")
+    implementation ("androidx.paging:paging-compose:3.3.0")
+
+
 
 }

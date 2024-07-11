@@ -35,10 +35,13 @@ import com.example.anorbank.R
 import com.example.anorbank.presentation.main.home.components.TxtMoney
 import com.example.anorbank.presentation.main.home.components.TxtSimpleColor
 import com.example.anorbank.ui.theme.AnorBankTheme
+import com.example.anorbank.ui.theme.Anor_dark
 import com.example.anorbank.ui.theme.Anor_green
 import com.example.anorbank.ui.theme.Anor_green_light
 import com.example.anorbank.ui.theme.Anor_grey
 import com.example.anorbank.ui.theme.Anor_hint
+import com.example.anorbank.ui.theme.Anor_hinting
+import com.example.anorbank.ui.theme.Anor_white
 import com.example.anorbank.utils.spacers.SpacerHEight
 import com.example.anorbank.utils.spacers.SpacerHSixteen
 import com.example.anorbank.utils.spacers.SpacerHThirtyTwo
@@ -62,12 +65,12 @@ fun CashBack() {
     }
     Card(
         modifier = Modifier
-            .clip(shape = RoundedCornerShape(18.dp))
+            .clip(shape = RoundedCornerShape(8.dp))
             .clickable {
                 isExpanded = !isExpanded
-            }
+            }.background(color = Anor_white)
     ) {
-        Column(modifier = Modifier.background(color = Color.White)) {
+        Column(modifier = Modifier.background(color = Anor_white)) {
 
             SpacerHEight()
             Row(modifier = Modifier.fillMaxWidth()) {
@@ -125,8 +128,8 @@ fun CashBack() {
 @Preview
 fun CashExPrev() {
     AnorBankTheme {
-        CashBack()
-        //CashFrame()
+        //CashBack()
+        CashFrame()
     }
 }
 
@@ -136,27 +139,27 @@ fun CashFrame() {
         modifier = Modifier
             .padding(horizontal = 12.dp)
             .fillMaxWidth()
-            .clip(shape = RoundedCornerShape(18.dp))
+            .clip(shape = RoundedCornerShape(8.dp))
             .border(
-                width = 1.5.dp,
-                color = Anor_hint,
-                shape = RoundedCornerShape(18.dp)
+                width = 1.dp,
+                color = Anor_hinting,
+                shape = RoundedCornerShape(12.dp)
             )
-            .background(color = Color.White)
+            .background(color = Anor_white)
     ) {
         Row(modifier = Modifier.fillMaxWidth()) {
             Text(
                 text = stringResource(id = R.string.ex_cash),
                 modifier = Modifier
                     .weight(0.8f)
-                    .padding(top = 16.dp, start = 12.dp),
+                    .padding(top = 24.dp, start = 16.dp),
                 fontSize = 16.sp,
                 color = Anor_grey,
                 fontFamily = FontFamily(Font(R.font.monsbold))
             )
             Percentage(
                 modifier = Modifier
-                    .padding(top = 16.dp, end = 12.dp)
+                    .padding(top = 18.dp, end = 14.dp)
                     .weight(0.2f)
             )
 
@@ -167,7 +170,7 @@ fun CashFrame() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 12.dp),
-            color = Anor_hint,
+            color = Anor_hinting,
             fontFamily = FontFamily(Font(R.font.monsbold)),
             fontSize = 11.sp
         )
@@ -217,7 +220,7 @@ fun Percentage(modifier: Modifier) {
         TxtSimpleColor(
             modifier = Modifier.padding(top = 3.dp, bottom = 3.dp),
             text = " 25.0%",
-            fontSize = 10.sp, fontik = FontFamily(Font(R.font.monsbold)),
+            fontSize = 9.sp, fontik = FontFamily(Font(R.font.monsbold)),
             color = Anor_green
         )
 

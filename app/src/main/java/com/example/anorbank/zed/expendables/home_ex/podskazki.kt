@@ -132,7 +132,7 @@ fun Podskazki() {
 
                     LazyPodskazki(data = itemList)
 
-                    SpacerHSixteen()
+                   // SpacerHSixteen()
                 }
             }
 

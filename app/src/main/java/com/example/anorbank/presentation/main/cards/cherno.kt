@@ -26,22 +26,22 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import com.example.anorbank.R
 import com.example.anorbank.ui.theme.Anor_dark
-
-class CardsScreen: Screen {
-    @Composable
-    override fun Content() {
-
-    }
-}
-
-
-@Composable
-fun CardScreen() {
-
-}
-
-@Preview
-@Composable
-fun PrevCard() {
-
-}
+//
+//class CardsScreen: Screen {
+//    @Composable
+//    override fun Content() {
+//
+//    }
+//}
+//
+//
+//@Composable
+//fun CardScreen() {
+//
+//}
+//
+//@Preview
+//@Composable
+//fun PrevCard() {
+//
+//}
